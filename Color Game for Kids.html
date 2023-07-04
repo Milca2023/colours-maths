@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Game for Kids</title>
+    <link rel="stylesheet" href="Color Game for Kids.css">
+</head>
+
+    <script>
+        // Colors array
+const colors = ['green', 'magenta', 'yellow', 'orange', 'pink', 'blue', 'brown', 'purple', 'red', 'gray'];
+
+// Track selected colors
+const selectedColors = [];
+
+// Function to change the color of the box and display the message
+function changeColor(color) {
+  const box = document.getElementById('color-box');
+  box.style.backgroundColor = color;
+  selectedColors.push(color);
+  if (selectedColors.length === colors.length) {
+    showMessage('Congratulations! You have successfully completed the course on basic colors.');
+  } else {
+    showMessage(`You have just learned how ${color} looks like.`);
+  }
+}
+
+// Function to display the message
+function showMessage(message) {
+  const popup = document.getElementById('popup');
+  const messageElement = document.getElementById('message');
+  messageElement.textContent = message;
+  popup.style.display = 'block';
+}
+
+// Function to close the popup
+function closePopup() {
+  const popup = document.getElementById('popup');
+  popup.style.display = 'none';
+}
+
+// Add event listeners to color buttons
+window.onload = function() {
+  const buttons = document.getElementsByClassName('color-button');
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function() {
+      changeColor(colors[i]);
+    });
+  }
+};
+    </script>
+
+
+<body>
+
+    <h1>
+        <span style="color: #ff6f00;">C</span>
+        <span style="color: #ff9554;">o</span>
+        <span style="color: #ffba47;">l</span>
+        <span style="color: #ffde1a;">o</span>
+        <span style="color: #61ff8e;">u</span>
+        <span style="color: #fdff61;">r</span>
+        <span style="color: #9cff8e;"> </span>
+        <span style="color: #61b8ff;">L</span>
+        <span style="color: #7388ff;">e</span>
+        <span style="color: #8a61ff;">a</span>
+        <span style="color: #b75eff;">r</span>
+        <span style="color: #ff6fcc;">n</span>
+        <span style="color: #ff6f00;">i</span>
+        <span style="color: #ff9554;">n</span>
+        <span style="color: #ffba47;">g</span>
+      </h1>
+
+
+    <div id="color-box"></div>
+  
+    <div id="buttons-container">
+        <h3>
+            <button class="color-button">Green</button>
+            <button class="color-button">Magenta</button>
+            <button class="color-button">Yellow</button>
+            <button class="color-button">Orange</button>
+            <button class="color-button">Pink</button>
+            <button class="color-button">Blue</button>
+            <button class="color-button">Brown</button>
+            <button class="color-button">Purple</button>
+            <button class="color-button">Red</button>
+            <button class="color-button">Gray</button>
+        </h3>
+    </div>
+  
+    <div id="popup">
+      <p id="message"></p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

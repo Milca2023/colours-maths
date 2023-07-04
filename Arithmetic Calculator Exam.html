@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Calculator</title>
+    <link rel="stylesheet" href="Arithmetic Calculator.css">
+
+</head>
+    <script>
+    function appendNumber(number) {
+        var input = document.getElementById("input");
+        input.value += number;
+    }
+
+    function clearInput() {
+        var input = document.getElementById("input");
+        input.value = '';
+    }
+
+    function calculate() {
+        var expression = document.getElementById("input").value;
+        var result = eval(expression);
+        document.getElementById("input").value = result;
+    }
+    </script>
+    
+<body>
+    <div class="calculator-container">
+        <div class="calculator">
+            <h2>Arithmetic Calculator</h2>
+            <input type="text" id="input" readonly><br><br>
+            <button class="calculator-btn" onclick="appendNumber('1')">1</button>
+            <button class="calculator-btn" onclick="appendNumber('2')">2</button>
+            <button class="calculator-btn" onclick="appendNumber('3')">3</button><br>
+            <button class="calculator-btn" onclick="appendNumber('4')">4</button>
+            <button class="calculator-btn" onclick="appendNumber('5')">5</button>
+            <button class="calculator-btn" onclick="appendNumber('6')">6</button><br>
+            <button class="calculator-btn" onclick="appendNumber('7')">7</button>
+            <button class="calculator-btn" onclick="appendNumber('8')">8</button>
+            <button class="calculator-btn" onclick="appendNumber('9')">9</button><br>
+            <button class="calculator-btn" onclick="appendNumber('0')">0</button><br><br>
+            <button class="calculator-btn" onclick="appendNumber('+')">+</button>
+            <button class="calculator-btn" onclick="appendNumber('-')">-</button>
+            <button class="calculator-btn" onclick="appendNumber('*')">*</button>
+            <button class="calculator-btn" onclick="appendNumber('/')">/</button><br><br>
+            <button class="calculator-btn" onclick="clearInput()">C</button>
+            <button class="calculator-btn" onclick="calculate()">=</button>
+        </div>
+    </div>
+</body>
+</html>
